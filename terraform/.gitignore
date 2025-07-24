@@ -1,0 +1,14 @@
+# ملفات الحالة
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/*.tfstate.*
+
+# مجلد العمل الداخلي
+terraform/.terraform/
+
+# متغيرات سرّية
+terraform/terraform.tfvars
+terraform/*.auto.tfvars
+terraform/*.tfvars
+
+

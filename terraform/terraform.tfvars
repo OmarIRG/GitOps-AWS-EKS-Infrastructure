@@ -1,3 +1,3 @@
 # Sensitive parameters 
-db_username = "Omar"
-db_password = "worldOFmartyers1971"
+db_username = "OmarIRG"
+db_password = "worldOFmartyers1971@gmail.com"
