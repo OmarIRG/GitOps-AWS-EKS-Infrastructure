@@ -1,29 +1,24 @@
-###############################################################################
-# modules/vpc/variables.tf
-###############################################################################
-
 variable "vpc_name" {
+  description = "Name tag for the VPC"
   type        = string
-  description = "Name of the VPC"
 }
 
 variable "vpc_cidr" {
-  type        = string
   description = "CIDR block for the VPC"
+  type        = string
 }
 
 variable "public_subnets_cidrs" {
+  description = "CIDRs for public subnets"
   type        = list(string)
-  description = "List of CIDRs for public subnets"
 }
 
 variable "private_subnets_cidrs" {
+  description = "CIDRs for private subnets"
   type        = list(string)
-  description = "List of CIDRs for private subnets"
 }
 
 variable "azs" {
+  description = "Availability Zones to spread the subnets across"
   type        = list(string)
-  description = "List of availability zones to use"
 }
-

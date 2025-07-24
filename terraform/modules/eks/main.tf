@@ -1,32 +1,20 @@
-###############################################################################
-# modules/vpc/main.tf
-###############################################################################
+module "this" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "~> 19.0"
 
-# We will use the official terraform-aws-modules/vpc/aws module
-module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.0"
+  cluster_name    = var.cluster_name
+  cluster_version = var.eks_version
+  vpc_id          = var.vpc_id
+  subnets         = var.private_subnets           # Workers in private subnets
 
-  name = var.vpc_name
-  cidr = var.vpc_cidr
-
-  azs             = var.azs
-  public_subnets  = var.public_subnets_cidrs
-  private_subnets = var.private_subnets_cidrs
-
-  enable_nat_gateway   = true
-  single_nat_gateway   = true
-  enable_dns_hostnames = true
-  enable_dns_support   = true
-
-  public_subnet_tags = {
-    "Name"            = "${var.vpc_name}-public"
-    "k8s.io/role/elb" = "1"
+  node_groups = {
+    default = {
+      desired_capacity = var.desired_capacity
+      max_capacity     = var.max_capacity
+      min_capacity     = var.min_capacity
+      instance_types   = ["t3.medium"]            # Burst‑capable, cost‑effective
+    }
   }
 
-  private_subnet_tags = {
-    "Name"                  = "${var.vpc_name}-private"
-    "k8s.io/role/internal-elb" = "1"
-  }
+  manage_aws_auth = true                          # Maps IAM roles to RBAC
 }
-

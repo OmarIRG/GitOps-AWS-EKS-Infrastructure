@@ -1,9 +1,9 @@
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
-  }
+  required_version = ">= 1.1.0"
+  backend "local" {}     
 }
 
 provider "aws" {
-  region = var.aws_region
+  region = "us-east-1"  
 }
+

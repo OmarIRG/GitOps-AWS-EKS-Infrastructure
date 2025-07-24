@@ -1,19 +1,14 @@
-###############################################################################
-# modules/vpc/outputs.tf
-###############################################################################
-
-output "vpc_id" {
-  description = "The ID of the created VPC"
-  value       = module.vpc.vpc_id
+output "cluster_id" {
+  description = "EKS cluster name"
+  value       = module.this.cluster_id
 }
 
-output "public_subnets" {
-  description = "The IDs of the public subnets"
-  value       = module.vpc.public_subnets
+output "cluster_endpoint" {
+  description = "EKS API server endpoint"
+  value       = module.this.cluster_endpoint
 }
 
-output "private_subnets" {
-  description = "The IDs of the private subnets"
-  value       = module.vpc.private_subnets
+output "cluster_security_group_id" {
+  description = "Security Group ID for the cluster"
+  value       = module.this.cluster_security_group_id
 }
-

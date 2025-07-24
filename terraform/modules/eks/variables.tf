@@ -1,29 +1,8 @@
-###############################################################################
-# modules/vpc/variables.tf
-###############################################################################
-
-variable "vpc_name" {
-  type        = string
-  description = "Name of the VPC"
-}
-
-variable "vpc_cidr" {
-  type        = string
-  description = "CIDR block for the VPC"
-}
-
-variable "public_subnets_cidrs" {
-  type        = list(string)
-  description = "List of CIDRs for public subnets"
-}
-
-variable "private_subnets_cidrs" {
-  type        = list(string)
-  description = "List of CIDRs for private subnets"
-}
-
-variable "azs" {
-  type        = list(string)
-  description = "List of availability zones to use"
-}
-
+variable "cluster_name"       { description = "EKS cluster name" }
+variable "eks_version"        { description = "Kubernetes version" }
+variable "vpc_id"             { description = "VPC ID" }
+variable "private_subnets"    { description = "Private subnet IDs"  type = list(string) }
+variable "public_subnets"     { description = "Public subnet IDs"   type = list(string) }
+variable "desired_capacity"   { description = "Desired node count" }
+variable "max_capacity"       { description = "Max node count" }
+variable "min_capacity"       { description = "Min node count" }
