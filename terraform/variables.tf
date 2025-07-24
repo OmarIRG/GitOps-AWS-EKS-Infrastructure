@@ -46,7 +46,7 @@ variable "cluster_name" {
 variable "eks_version" {
   description = "Kubernetes version for EKS"
   type        = string
-  default     = "1.24"
+  default     = "1.29"
 }
 
 variable "desired_capacity" {
